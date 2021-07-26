@@ -1,4 +1,5 @@
 <?php
+
 namespace Jota\OnuList\Classes;
 
 use Goutte\Client;
@@ -36,10 +37,9 @@ class OnuList
         $this->name = strtolower($name);
         $client = new Client();
         $crawler = $client->request('GET', config('onulist.url'));
-
         $crawler->filter('[class="rowtext"]')->each(function ($data) {
             $split = explode('Name:', $data->text());
-            if (strcmp($this->name, $this->makeName($split)) == 0) {
+            if (strcmp(str_replace(' ', '', $this->name), $this->makeName($split)) == 0) {
                 $info = [
                     'name' => $this->name,
                 ];
@@ -97,8 +97,7 @@ class OnuList
             $name .= ' ' . $third;
         if ($fourth !== '')
             $name .= ' ' . $fourth;
-
-        return strtolower($name);
+        return str_replace(' ', '', strtolower($name));
     }
 
     /**
