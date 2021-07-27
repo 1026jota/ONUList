@@ -106,6 +106,6 @@ class OnuList
      */
     public function getResult(): array
     {
-        return $this->result);
+        return $this->result;
     }
 }
