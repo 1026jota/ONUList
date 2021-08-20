@@ -1,4 +1,4 @@
-## SDNL LIST
+## ONU LIST
 
 _Paquete composer para buscar nombre dentro de la lista del concilio de seguridad de la ONU_
 
@@ -12,6 +12,12 @@ _para instalar el paquete ejecute el siguiente comando en consola:_
 
 ```
 composer require 1026jota/onu-security-council-list
+```
+
+_después para publicar el archivo de configuración ejecuta siguiente comando:_
+
+```
+php artisan vendor:publish --provider='Jota\OnuList\Providers\OnuListListServiceProvider'
 ```
 
 ## Autores ✒️
